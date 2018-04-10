@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'MedManagerKey'
+            keyPassword 'gommerlodge1'
+            storeFile file('C:/Users/HP/.android/debug.keystore')
+            storePassword 'gommerlodge'
+        }
+    }
+    compileSdkVersion 26
+    buildToolsVersion '25.0.0'
+    defaultConfig {
+        applicationId "com.starters.android.medmanager"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true //important
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile files('app/libs/junit-4.12-JavaDoc.jar')
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:support-v4:26.0.0-alpha'
+    compile 'io.hypertrack:smart-scheduler:0.0.11'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-auth:11.0.4'
+    compile 'com.google.android.gms:play-services-plus:11.0.4'
+    //compile 'com.firebaseui:firebase-ui:1.2.0'
+}
