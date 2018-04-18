@@ -131,6 +131,7 @@ public class LoginActivity extends AppCompatActivity
                     SharedPreferences mPref = getSharedPreferences("LOGIN_SESSION",MODE_PRIVATE);
                     SharedPreferences.Editor mEditor = mPref.edit();
                     mEditor.putBoolean("has_logged_in",true);
+                    mEditor.putString("email",email);
                     mEditor.apply();
                     Intent mIntent = new Intent(LoginActivity.this,HomeActvity.class);
                     startActivity(mIntent);

@@ -57,6 +57,12 @@ public class HomeFragment extends Fragment {
         mView = inflater.inflate(R.layout.fragment_home, container, false);
         sHomeListView = (ListView) mView. findViewById(R.id.framentHomeListId);
         sDataInfo = (TextView) mView. findViewById(R.id.databaseDataInfo);
+        //check if medical data has been created
+        SharedPreferences mPref = getContext().getSharedPreferences("MEDICATION_ADDED",MODE_PRIVATE);
+        if(!mPref.getBoolean("medication_added",false)){
+            sDataInfo.setVisibility(View.VISIBLE);
+            sDataInfo.setText("No medical\\ndata found\\ncreate one below");
+        }
         sAdapter = new CustomAdapter(getActivity(), sDrugContacts);
         sDb = new DBAdapter(getContext());
         //sAdapter = new CustomAdapter(getActivity(),sDrugContacts);

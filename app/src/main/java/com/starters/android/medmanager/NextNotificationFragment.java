@@ -33,8 +33,8 @@ public class NextNotificationFragment extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
 
-        if (isVisibleToUser == true) { }
-        else if (isVisibleToUser == false) {  }
+        if (isVisibleToUser == true) {
 
+        }
     }
 }

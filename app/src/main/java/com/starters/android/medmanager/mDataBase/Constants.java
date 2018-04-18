@@ -3,7 +3,7 @@ package com.starters.android.medmanager.mDataBase;
 /**
  * Created by Frederick
  */
-public class ConstantVariables {
+public class Constants {
     //Monthly medication intake counter
     public static final String MONTHLY_COUNTER="_counter";
     //COLUMNS

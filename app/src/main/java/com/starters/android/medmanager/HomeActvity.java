@@ -39,6 +39,7 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.starters.android.medmanager.mDataBase.DBAdapter;
@@ -85,6 +86,10 @@ public class HomeActvity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //set profile email
+        /*SharedPreferences mPref = getSharedPreferences("LOGIN_SESSION",MODE_PRIVATE);
+        TextView mProfileName = (TextView)findViewById(R.id.profileName);
+        mProfileName.setText(mPref.getString("email",null));*/
         //
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         createViewPager(mViewPager);

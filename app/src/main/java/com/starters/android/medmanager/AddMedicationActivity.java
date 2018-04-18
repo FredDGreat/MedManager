@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.starters.android.medmanager.mDataBase.Constants;
 import com.starters.android.medmanager.mDataBase.DBAdapter;
 
 import java.text.DateFormat;
@@ -176,17 +177,36 @@ public class AddMedicationActivity extends AppCompatActivity implements View.OnC
      */
     private void save(String name,String desc,String interval,String date)
     {
+        Date now = new Date();
+        DateFormat sdf;
+        //sdf = new SimpleDateFormat("EEE dd MMM yyyy 'Time:'hh:mm a ");
+        sdf = new SimpleDateFormat("MMM");
+        String mCurrentMonth = sdf.format(now);
         DBAdapter db=new DBAdapter(this);
         db.openDB();
         boolean saved=db.add(name,desc,interval,date);
-
+        //Toast.makeText(this, mCurrentMonth, Toast.LENGTH_SHORT).show();
         if(saved)
         { 
             SharedPreferences mPref = getSharedPreferences("MEDICATION_ADDED",MODE_PRIVATE);
             SharedPreferences.Editor mEditor = mPref.edit();
             mEditor.putBoolean("medication_added",true);
             mEditor.apply();
-            Toast.makeText(this,"Medication added.",Toast.LENGTH_SHORT).show();
+            //save monthly intake count in SharedPreferences storage using the current month
+            SharedPreferences mPref4Category = getSharedPreferences("MONTHLY_INTAKE",MODE_PRIVATE);
+            SharedPreferences.Editor mEditor4Category = mPref4Category.edit();
+            //if no counter has been created, create one
+            if(!mPref4Category.getBoolean("isMonthlyCounter",false)) {
+                mEditor4Category.putBoolean("isMonthlyCounter",true);
+                mEditor4Category.putInt(mCurrentMonth+Constants.MONTHLY_COUNTER, 1);
+                mEditor4Category.apply();
+            }else{
+                //load the counter stored, increment it and store it back to SharedPreferences storage
+                int mCounter = mPref4Category.getInt(mCurrentMonth+ Constants.MONTHLY_COUNTER,0);
+                mCounter += 1;
+                mEditor4Category.putInt(mCurrentMonth+Constants.MONTHLY_COUNTER,mCounter);
+                mEditor4Category.apply();
+            }
             onBackPressed();
         }else {
             Toast.makeText(this,"Unable To Save",Toast.LENGTH_SHORT).show();
