@@ -36,6 +36,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat.Builder;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -56,6 +57,8 @@ public class HomeActvity extends AppCompatActivity
     private ViewPager mViewPager;
     //cursor that will be used to perform search query
     Cursor cursor;
+    //checks when logout button is clicked
+    boolean isLogout;
     FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,8 +122,13 @@ public class HomeActvity extends AppCompatActivity
                 if(pageNumber == 2){
                     //scheduleNotification(getNotification("Medication Alart!"),500);
                     //scheduleNotification();
-                    AnimationUtils.loadAnimation(HomeActvity.this,R.anim.fadeout);
-                    fab
+                    /*Animation mAnim = AnimationUtils.loadAnimation(HomeActvity.this,R.anim.fadeout);
+                    fab.startAnimation(mAnim);*/
+                    fab.setVisibility(View.GONE);
+                }else{
+                    /*Animation mAnim = AnimationUtils.loadAnimation(HomeActvity.this,R.anim.fadein);
+                    fab.startAnimation(mAnim);*/
+                    fab.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -214,11 +222,11 @@ public class HomeActvity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer.isDrawerOpen(GravityCompat.START) && !isLogout) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            overridePendingTransition(R.anim.fadein_a_bit,R.anim.slide_out_from_right);
             super.onBackPressed();
+            overridePendingTransition(R.anim.fadein_a_bit,R.anim.slide_out_from_right);
         }
     }
     public void scheduleNotification(){
@@ -278,7 +286,8 @@ public class HomeActvity extends AppCompatActivity
                 public void run() {
                     Intent mIntent = new Intent(HomeActvity.this,LoginActivity.class);
                     startActivity(mIntent);
-                    finish();
+                    isLogout = true;
+                    onBackPressed();
                 }
             },500);
         }

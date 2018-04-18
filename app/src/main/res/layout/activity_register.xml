@@ -73,6 +73,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:id="@+id/fullName"
                         android:hint="Full Name"
                         android:inputType="textEmailAddress"
                         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -89,6 +90,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:id="@+id/email"
                         android:hint="Email"
                         android:inputType="textEmailAddress"
                         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -114,9 +116,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:id="@+id/password"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:hint="Password"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textPassword"
                         android:textColor="#ee565656"
                         android:textColorHint="#dd565656"
                         app:backgroundTint="#b8d1ef" />
@@ -126,13 +129,15 @@
                     android:id="@+id/mobileLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:layout_marginTop="16dp"
                         android:hint="Mobile"
-                        android:inputType="textEmailAddress"
+                        android:inputType="number"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="#ee565656"
                         android:textColorHint="#dd565656"
                         app:backgroundTint="#b8d1ef" />
@@ -141,6 +146,7 @@
                 <android.support.v7.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/signUpBtn"
                     android:layout_gravity="center"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
@@ -157,7 +163,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:id="@+id/havAnAccountBtn"
                     android:layout_marginBottom="16dp"
+                    android:padding="8dp"
                     android:orientation="horizontal">
 
                     <TextView

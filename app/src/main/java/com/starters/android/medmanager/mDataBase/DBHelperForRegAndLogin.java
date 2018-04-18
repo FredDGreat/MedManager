@@ -8,17 +8,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by Frederick
  */
-public class DBHelper extends SQLiteOpenHelper {
+public class DBHelperForRegAndLogin extends SQLiteOpenHelper {
 
-    public DBHelper(Context context) {
-        super(context, Constants.DB_NAME, null, Constants.DB_VERSION);
+    public DBHelperForRegAndLogin(Context context) {
+        super(context, Constants.TB_NAME_FOR_REG_AND_LOGIN, null, Constants.DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         try
         {
-            db.execSQL(Constants.CREATE_TB);
+            db.execSQL(Constants.CREATE_TB_FOR_REG_AND_LOGIN);
         }catch (SQLException e)
         {
             e.printStackTrace();
@@ -28,7 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-       db.execSQL(Constants.DROP_TB);
+       db.execSQL(Constants.DROP_TB_FOR_REG_AND_LOGIN);
         onCreate(db);
     }
 }
