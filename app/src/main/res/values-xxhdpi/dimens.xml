@@ -11,4 +11,8 @@
     <dimen name="nav_header_height">120dp</dimen>
     <dimen name="button_padding">8dp</dimen>
     <dimen name="body_margin">40dp</dimen>
+    <dimen name="item_spacing">24dp</dimen>
+    <dimen name="item_spacing2">20dp</dimen>
+    <dimen name="pill_icon_width">30dp</dimen>
+    <dimen name="pill_icon_height">60dp</dimen>
 </resources>

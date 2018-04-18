@@ -11,13 +11,13 @@ public class RegisterActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_from_right,R.anim.fadeout_a_bit);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
     }
 
     @Override
     public void onBackPressed() {
-        overridePendingTransition(R.anim.fadein_a_bit,R.anim.slide_out_from_right);
         super.onBackPressed();
+        overridePendingTransition(R.anim.fadein_a_bit,R.anim.slide_out_from_right);
     }
 
     @Override

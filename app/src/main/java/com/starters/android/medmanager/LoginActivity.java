@@ -2,6 +2,7 @@ package com.starters.android.medmanager;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +19,7 @@ public class LoginActivity extends AppCompatActivity
     private AppCompatEditText mEmail,mPassword;
     private AppCompatTextView mSignUpBtn,mLoginBtn;
     private LinearLayout linkForgotPassword,linkSignInWithGoogle;
-    private GooglePlusSignInHelper gSignInHelper;
+    //private GooglePlusSignInHelper gSignInHelper;
     private ProgressBar mProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,31 +33,39 @@ public class LoginActivity extends AppCompatActivity
         //mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         //GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         //updateUI(account);
-        // Check if no view has focus:
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-        mEmail = (AppCompatEditText)findViewById(R.id.email);
-        mPassword = (AppCompatEditText)findViewById(R.id.password);
-        //
-        mSignUpBtn = (AppCompatTextView)findViewById(R.id.signUpBtn);
-        mLoginBtn = (AppCompatTextView)findViewById(R.id.signInBtn);
-        //
-        mProgressBar = (ProgressBar)findViewById(R.id.progress_bar);
-        //
-        linkForgotPassword = (LinearLayout)findViewById(R.id.linkForgotPassword);
-        linkSignInWithGoogle = (LinearLayout)findViewById(R.id.linkSignInWithGoogle);
+        // Check if no mView has focus:
+        SharedPreferences mPref = getSharedPreferences("LOGIN_SESSION",MODE_PRIVATE);
+        if (mPref.getBoolean("has_logged_in", false)) {
+            Intent mIntent = new Intent(LoginActivity.this,HomeActvity.class);
+            startActivity(mIntent);
+            finish();
+        }else
+        {
+            View view = this.getCurrentFocus();
+            if (view != null) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+            mEmail = (AppCompatEditText) findViewById(R.id.email);
+            mPassword = (AppCompatEditText) findViewById(R.id.password);
+            //
+            mSignUpBtn = (AppCompatTextView) findViewById(R.id.signUpBtn);
+            mLoginBtn = (AppCompatTextView) findViewById(R.id.signInBtn);
+            //
+            mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
+            //
+            linkForgotPassword = (LinearLayout) findViewById(R.id.linkForgotPassword);
+            linkSignInWithGoogle = (LinearLayout) findViewById(R.id.linkSignInWithGoogle);
 
-        mEmail.setOnClickListener(this);
-        mPassword.setOnClickListener(this);
-        //------
-        mSignUpBtn.setOnClickListener(this);
-        mLoginBtn.setOnClickListener(this);
-        //------
-        linkForgotPassword.setOnClickListener(this);
-        linkSignInWithGoogle.setOnClickListener(this);
+            mEmail.setOnClickListener(this);
+            mPassword.setOnClickListener(this);
+            //------
+            mSignUpBtn.setOnClickListener(this);
+            mLoginBtn.setOnClickListener(this);
+            //------
+            linkForgotPassword.setOnClickListener(this);
+            linkSignInWithGoogle.setOnClickListener(this);
+        }
     }
 
     /**
@@ -75,6 +84,10 @@ public class LoginActivity extends AppCompatActivity
                     @Override
                     public void run() {
                         mProgressBar.setVisibility(View.GONE);
+                        SharedPreferences mPref = getSharedPreferences("LOGIN_SESSION",MODE_PRIVATE);
+                        SharedPreferences.Editor mEditor = mPref.edit();
+                        mEditor.putBoolean("has_logged_in",true);
+                        mEditor.apply();
                         Intent mIntent = new Intent(LoginActivity.this,HomeActvity.class);
                         startActivity(mIntent);
                         finish();

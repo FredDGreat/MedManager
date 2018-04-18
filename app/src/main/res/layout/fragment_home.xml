@@ -6,19 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    tools:context=".HomeActvity"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/framentHomeListId"
-            />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/framentHomeListId"
+        android:visibility="visible"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/databaseDataInfo"
         android:layout_gravity="center"
+        android:textAlignment="center"
         android:textColor="#dd8f8f8f"
-        android:textSize="24sp"
-        android:text="No medical data\ncreate one below"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="gone"
+        android:text="@string/data_info"
         />
 </android.support.design.widget.CoordinatorLayout>

@@ -61,58 +61,82 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     android:text="Basic Information"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="normal" />
 
-                <android.support.v7.widget.AppCompatEditText
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fullNameLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="Full Name"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#ee565656"
-                    android:textColorHint="#dd565656"
-                    app:backgroundTint="#b8d1ef" />
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="Full Name"
+                        android:inputType="textEmailAddress"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#ee565656"
+                        android:textColorHint="#dd565656"
+                        app:backgroundTint="#b8d1ef" />
+                </android.support.design.widget.TextInputLayout>
 
-                <android.support.v7.widget.AppCompatEditText
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/emailLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#ee565656"
-                    android:textColorHint="#dd565656"
-                    app:backgroundTint="#b8d1ef" />
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#ee565656"
+                        android:textColorHint="#dd565656"
+                        app:backgroundTint="#b8d1ef" />
+                </android.support.design.widget.TextInputLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     android:text="Private Information"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="normal" />
 
-                <android.support.v7.widget.AppCompatEditText
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/passwordLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="Password"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#ee565656"
-                    android:textColorHint="#dd565656"
-                    app:backgroundTint="#b8d1ef" />
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:hint="Password"
+                        android:inputType="textEmailAddress"
+                        android:textColor="#ee565656"
+                        android:textColorHint="#dd565656"
+                        app:backgroundTint="#b8d1ef" />
+                </android.support.design.widget.TextInputLayout>
 
-                <android.support.v7.widget.AppCompatEditText
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/mobileLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:hint="Mobile"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#ee565656"
-                    android:textColorHint="#dd565656"
-                    app:backgroundTint="#b8d1ef" />
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_marginTop="16dp"
+                        android:hint="Mobile"
+                        android:inputType="textEmailAddress"
+                        android:textColor="#ee565656"
+                        android:textColorHint="#dd565656"
+                        app:backgroundTint="#b8d1ef" />
+                </android.support.design.widget.TextInputLayout>
 
                 <android.support.v7.widget.AppCompatTextView
                     android:layout_width="match_parent"
@@ -126,7 +150,7 @@
                     android:paddingTop="8dp"
                     android:text="Sign Up"
                     android:textAlignment="center"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#fff" />
 
                 <LinearLayout

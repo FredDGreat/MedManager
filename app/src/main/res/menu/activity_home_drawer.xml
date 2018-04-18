@@ -3,8 +3,12 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/logout"
+            android:icon="@android:drawable/ic_menu_directions"
+            android:title="Logout" />
+        <item
             android:id="@+id/exit"
-            android:icon="@mipmap/ic_cancel_white_48pt"
+            android:icon="@android:drawable/ic_menu_close_clear_cancel"
             android:title="Exit" />
     </group>
 

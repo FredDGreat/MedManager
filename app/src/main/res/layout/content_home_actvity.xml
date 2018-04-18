@@ -9,7 +9,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_home_actvity"
     android:orientation="vertical"
-    tools:context="com.starters.android.medmanager.HomeActvity">
+    tools:context="com.starters.android.medmanager.HomeActivity">
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"

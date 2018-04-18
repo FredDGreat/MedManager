@@ -22,4 +22,19 @@ public class NextNotificationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_next_notification, container, false);
         return view;
     }
+    @Override
+    public void setMenuVisibility(final boolean visible) {
+        super.setMenuVisibility(visible);
+        if (visible) {
+            // ...
+        }
+    }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        if (isVisibleToUser == true) { }
+        else if (isVisibleToUser == false) {  }
+
+    }
 }
